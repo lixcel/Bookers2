@@ -3,6 +3,7 @@
     <div class="col-md-3">
       <h2>User info</h2>
 
+<%= render 'books/list', book: @book %>
 
     </div>
 
@@ -22,8 +23,16 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-          <td>画像予定</td>
+          <td>
+          <% if user.profile_image.attached? %>
+            <%= image_tag user.profile_image, size: "40x40" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "40x40" %>
+          <% end %>
+          </td>
+
           <td><% user.name %></td>
+
           <td><%= link_to 'Show', user_path(user.id) %></td>
             </tr>
           <% end %>
