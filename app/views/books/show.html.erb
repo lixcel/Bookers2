@@ -1,1 +1,43 @@
-<h1>振り出し</h1>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+<%= render 'books/list', book: @book %>
+
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book datail</h2>
+      <table class="table">
+        <tbody>
+
+          <tr>
+            <td>
+            <% if @book.user.profile_image.attached? %>
+              <%= image_tag @book.user.get_profile_image, size: "40x40" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "40x40" %>
+            <% end %>
+
+            </td>
+
+          <td>
+            <%= @book.title %>
+          </td>
+          <td>
+            <%= @book.body %>
+          </td>
+          <% if @book.user == current_user %>
+          <td>
+            <%= link_to "edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
+          </td>
+
+          <td>
+            <%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+          </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

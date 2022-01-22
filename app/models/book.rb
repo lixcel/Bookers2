@@ -2,7 +2,7 @@ class Book < ApplicationRecord
 
   has_one_attached :profile_image
 
-  belongs_to :user
+  belongs_to :user, optional: true
 
   def get_image
     if image.attached?

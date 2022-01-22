@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about', as: 'about'
 devise_for :users
 
-post 'books/:id' => 'books#create', as: 'book_path'
+ post 'books/:id' => 'books#create'
 
- resources :books, only: [:index, :show, :edit]
+ resources :books, only: [:index, :show, :edit, :destroy]
  resources :users, only: [:show,:edit, :index]
 
 
