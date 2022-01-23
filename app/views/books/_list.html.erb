@@ -1,9 +1,9 @@
     <div class="col-md-3">
       <h2>User info</h2>
       <% if current_user.profile_image.attached? %>
-        <%= image_tag current_user.profile_image, size: "63x63" %>
+        <%= image_tag current_user.profile_image, size: "100x100" %>
       <% else %>
-        <%= image_tag 'no_image', size: "63x63" %>
+        <%= image_tag 'no_image', size: "100x100" %>
       <% end %>
 
       <table class="table">
@@ -27,7 +27,7 @@
       </div>
 
       <h2 class="mt-3">New book</h2>
-      <%= form_with model: book, url: '/books',method: :create, local: true do |f| %>
+      <%= form_with model: Book.new, url: books_path, local: true do |f| %>
 
         <div class="form-group">
           <%= f.label :Title %>

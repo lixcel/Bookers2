@@ -83,7 +83,7 @@
     </header>
       <main>
         <% flash.each do |message_type, message| %>
-          <%= content_tag :div,message, class: "message_type text-success" %>
+          <%= content_tag :p,message, class: "message_type text-success" %>
         <% end %>
 
         <%= yield %>

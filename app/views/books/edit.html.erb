@@ -4,6 +4,21 @@
       <h1>Editing Book</h1>
 
       <%= form_with model: @book, method: :patch, local: true do |f| %>
+
+      <div class ="error_explanation text-danger">
+        <% if @book.errors.any? %>
+
+        <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+
+        <% end %>
+      </div>
+
+
       <div class="form-group">
         <%= f.label :Title %>
         <%= f.text_field :title, class: "form-control" %>

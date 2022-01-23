@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about', as: 'about'
 devise_for :users
 
- post 'books/:id' => 'books#create'
+#  post 'books/:id' => 'books#create'
 
 
- resources :books, only: [:index, :show, :edit, :destroy,:update]
+ resources :books, only: [:index, :show, :edit, :destroy,:update, :create]
  resources :users, only: [:show,:edit, :index]
 
 
