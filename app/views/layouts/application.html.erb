@@ -82,7 +82,9 @@
       </nav>
     </header>
       <main>
-        <p id="notice"><%= flash[:notice] %></p>
+        <% flash.each do |message_type, message| %>
+          <%= content_tag :div,message, class: "message_type text-success" %>
+        <% end %>
 
         <%= yield %>
       </main>
