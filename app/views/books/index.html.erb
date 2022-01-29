@@ -15,6 +15,7 @@
 
 
   <div class="row">
+
       <%= render 'books/list', book: @book %>
 
       <div class="col-md-8 offset-md-1">
@@ -48,6 +49,9 @@
               </td>
 
               <td><%= book.body %></td>
+
+                <%= render "favorites/favorite", book: book %>
+
             </tr>
             <% end %>
 

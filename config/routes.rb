@@ -7,7 +7,10 @@ devise_for :users
 #  post 'books/:id' => 'books#create'
 
 
- resources :books, only: [:index, :show, :edit, :destroy,:update, :create]
+ resources :books, only: [:index, :show, :edit, :destroy,:update, :create] do
+   resource :favorites, only: [:create, :destroy]
+  end
+  
  resources :users, only: [:show,:edit, :index]
 
 
